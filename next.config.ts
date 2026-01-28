@@ -1,8 +1,10 @@
 import type { NextConfig } from 'next'
+const isProd = process.env.NODE_ENV === 'production'
 
 const nextConfig: NextConfig = {
-  output: 'export', // Ключевая настройка для статики
-  // необязательно: отключает оптимизацию картинок (она требует сервер)
+  output: 'export',
+  basePath: isProd ? '/KW_Rental' : '',
+  assetPrefix: isProd ? '/KW_Rental/' : '',
   images: { unoptimized: true },
 }
 
