@@ -8,6 +8,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: '/',
       // disallow: ['/admin', '/private/'], // Запрети то, что не должны видеть клиенты
     },
-    sitemap: 'https://sollwar.github.io/kw-motoger-rental/sitemap.xml', // Замени на свой реальный домен
+    sitemap: 'https://arenda.z3rg.ru/sitemap.xml', // Замени на свой реальный домен
   }
 }
