@@ -30,6 +30,10 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
+  verification: {
+    google: '5vQ-AL991l_YTeXeqyhaTjWAIdFZvJumIzdx3F5P2yg',
+    yandex: '8e52625c598bc968',
+  },
 }
 
 export default function RootLayout({
