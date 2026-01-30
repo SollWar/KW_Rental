@@ -75,7 +75,7 @@ jobs:
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
       - name: Build with Next.js
         env:
-          NEXT_PUBLIC_DOMAIN: https://sollwar.github.io/MotoGearRental
+          NEXT_PUBLIC_DOMAIN: https://rental.kwmotogear.ru
           # Если используешь секреты GitHub:
           # NEXT_PUBLIC_API_KEY: ${{ secrets.MY_API_KEY }}
         run: ${{ steps.detect-package-manager.outputs.runner }} next build
