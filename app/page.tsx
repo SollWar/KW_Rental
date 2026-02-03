@@ -117,7 +117,7 @@ const MotoGearRental: React.FC = () => {
                       rel="noopener noreferrer"
                       className="underline"
                     >
-                      Открыть договор
+                      Открыть договор оферты
                     </a>
                   </h2>
                   <ul className="list-none space-y-2 text-sm text-gray-700 dark:text-gray-300">
