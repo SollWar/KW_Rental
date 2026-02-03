@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Аренда/прокат мотоэкипировки в Балашихе — KW Motogear',
     description:
-      'Качественная защита для мотоциклистов: шлемы SMK/IXS, мотокуртки и перчатки. Цены от 600 ₽/день. Залог 5000 ₽.',
+      'Качественная защита для мотоциклистов: шлемы SMK/AIM, мотокуртки и перчатки. Цены от 600 ₽/день. Залог 5000 ₽.',
     url: `https://${process.env.NEXT_PUBLIC_DOMAIN}`,
     siteName: 'KW Motogear',
     locale: 'ru_RU',
