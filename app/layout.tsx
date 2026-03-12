@@ -1,51 +1,87 @@
-import type { Metadata } from 'next'
-import './globals.css'
 import Script from 'next/script'
+import type { Metadata } from 'next'
+import {
+  defaultDescription,
+  defaultKeywords,
+  defaultTitle,
+  siteName,
+  siteUrl,
+} from '@/configs/site'
+import './globals.css'
+
+const ogImageUrl = `${siteUrl}/meta_logo.jpg`
 
 export const metadata: Metadata = {
-  metadataBase: `https://${process.env.NEXT_PUBLIC_DOMAIN}`,
+  metadataBase: new URL(siteUrl),
   title: {
-    default: 'Аренда/прокат мотоэкипировки в Балашихе — KW Motogear',
-    template: '%s — KW Motogear',
+    default: `${defaultTitle} - ${siteName}`,
+    template: `%s - ${siteName}`,
   },
-  applicationName: 'KW Motogear',
+  applicationName: siteName,
+  authors: [{ name: siteName }],
+  creator: siteName,
+  publisher: siteName,
+  manifest: '/manifest.json',
+  referrer: 'origin-when-cross-origin',
   alternates: {
-    canonical: `https://${process.env.NEXT_PUBLIC_DOMAIN}`,
+    canonical: siteUrl,
+    languages: {
+      'ru-RU': siteUrl,
+    },
   },
-  description:
-    'Аренда/прокат шлемов, мотокурток и перчаток в Балашихе — от 600 ₽/день. Залог 5000 ₽. Работаем ежедневно 10:00–19:00.',
-  keywords: [
-    'аренда/прокат мотоэкипировки Балашиха',
-    'аренда/прокат мотоэкипа',
-    'аренда/прокат мотошлемов',
-    'аренда/прокат мотокуртки',
-    'аренда/прокат мотоперчаток',
-    'KW Motogear',
-  ],
+  description: defaultDescription,
+  keywords: defaultKeywords,
+  category: 'motorcycle gear rental',
+  icons: {
+    icon: [
+      { url: '/favicon.svg', type: 'image/svg+xml' },
+      { url: '/favicon.ico' },
+    ],
+    apple: '/apple-icon.png',
+  },
   openGraph: {
-    title: 'Аренда/прокат мотоэкипировки в Балашихе — KW Motogear',
-    description:
-      'Качественная защита для мотоциклистов: шлемы SMK/AIM, мотокуртки и перчатки. Цены от 600 ₽/день. Залог 5000 ₽.',
-    url: `https://${process.env.NEXT_PUBLIC_DOMAIN}`,
-    siteName: 'KW Motogear',
+    title: `${defaultTitle} - ${siteName}`,
+    description: defaultDescription,
+    url: siteUrl,
+    siteName,
     locale: 'ru_RU',
     type: 'website',
     images: [
       {
-        url: 'meta_logo.jpg',
+        url: ogImageUrl,
         width: 1200,
         height: 630,
-        alt: 'KW Motogear — аренда/прокат мотоэкипировки в Балашихе',
+        alt: `${siteName} - аренда и прокат мотоэкипировки в Балашихе`,
       },
     ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: `${defaultTitle} - ${siteName}`,
+    description: defaultDescription,
+    images: [ogImageUrl],
   },
   robots: {
     index: true,
     follow: true,
+    nocache: false,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+      'max-video-preview': -1,
+    },
   },
   verification: {
     google: '5vQ-AL991l_YTeXeqyhaTjWAIdFZvJumIzdx3F5P2yg',
     yandex: '8e52625c598bc968',
+  },
+  other: {
+    'geo.region': 'RU-MOS',
+    'geo.placename': 'Балашиха',
+    'geo.position': '55.783759;37.867869',
+    ICBM: '55.783759, 37.867869',
   },
 }
 
@@ -56,9 +92,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ru">
-      <head>
-        <link rel="icon" href="favicon.svg" type="image/svg+xml" />
-      </head>
       <body>
         {children}
         <Script id="yandex-metrika" strategy="afterInteractive">
@@ -100,6 +133,7 @@ export default function RootLayout({
         </Script>
         <noscript>
           <div>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src="https://mc.yandex.ru/watch/106539241"
               style={{ position: 'absolute', left: '-9999px' }}
@@ -117,6 +151,7 @@ export default function RootLayout({
         </noscript>
         <noscript>
           <div>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src="https://top-fwz1.mail.ru/counter?id=3745711;js=na"
               style={{ position: 'absolute', left: '-9999px' }}

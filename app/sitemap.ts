@@ -1,24 +1,14 @@
 export const dynamic = 'force-static'
 import { MetadataRoute } from 'next'
+import { siteUrl } from '@/configs/site'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = `https://${process.env.NEXT_PUBLIC_DOMAIN}` // Твой домен
-
   return [
     {
-      url: baseUrl,
+      url: siteUrl,
       lastModified: new Date(),
-      changeFrequency: 'weekly', // Как часто ты обновляешь инфу (цены, наличие)
-      priority: 1, // Самая важная страница (от 0.0 до 1.0)
+      changeFrequency: 'weekly',
+      priority: 1,
     },
-    // Если в будущем добавишь страницу контактов или каталог:
-    /*
-    {
-      url: `${baseUrl}/contact`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    },
-    */
   ]
 }
