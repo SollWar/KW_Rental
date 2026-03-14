@@ -94,43 +94,11 @@ export default function RootLayout({
     <html lang="ru">
       <body>
         {children}
-        <Script id="yandex-metrika" strategy="afterInteractive">
-          {`
-            (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-            m[i].l=1*new Date();
-            for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
-            k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
-            (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
 
-            ym(106539241, "init", {
-                clickmap:true,
-                trackLinks:true,
-                accurateTrackBounce:true,
-                webvisor:true,
-                ecommerce:"dataLayer"
-            });
-          `}
-        </Script>
-        <Script id="google-tag-manager" strategy="afterInteractive">
-          {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-T55HC6Q4');`}
-        </Script>
-        <Script id="top-mail-ru" strategy="afterInteractive">
-          {`
-            var _tmr = window._tmr || (window._tmr = []);
-            _tmr.push({id: "3745711", type: "pageView", start: (new Date()).getTime()});
-            (function (d, w, id) {
-              if (d.getElementById(id)) return;
-              var ts = d.createElement("script"); ts.type = "text/javascript"; ts.async = true; ts.id = id;
-              ts.src = "https://top-fwz1.mail.ru/js/code.js";
-              var f = function () {var s = d.getElementsByTagName("script")[0]; s.parentNode.insertBefore(ts, s);};
-              if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); }
-            })(document, window, "tmr-code");
-          `}
-        </Script>
+        <Script src="/top_mail_ru.js" strategy="beforeInteractive" />
+        <Script src="/yandex_metrika.js" strategy="afterInteractive" />
+        <Script src="/google_tag_manager.js" strategy="afterInteractive" />
+
         <noscript>
           <div>
             {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -141,6 +109,7 @@ export default function RootLayout({
             />
           </div>
         </noscript>
+
         <noscript>
           <iframe
             src="https://www.googletagmanager.com/ns.html?id=GTM-T55HC6Q4"
@@ -149,12 +118,13 @@ export default function RootLayout({
             style={{ display: 'none', visibility: 'hidden' }}
           />
         </noscript>
+
         <noscript>
           <div>
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src="https://top-fwz1.mail.ru/counter?id=3745711;js=na"
-              style={{ position: 'absolute', left: '-9999px' }}
+              style={{ border: 0, position: 'absolute', left: '-9999px' }}
               alt="Top.Mail.Ru"
             />
           </div>
